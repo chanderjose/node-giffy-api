@@ -1,0 +1,52 @@
+@BASE_URl = http://localhost:8080
+
+###
+
+GET {{BASE_URl}}/api/
+Content-Type: application/json
+
+###
+
+GET {{BASE_URl}}/api/not/exist/path
+Content-Type: application/json
+Authorization: {{authToken}}
+
+###
+
+POST {{BASE_URl}}/api/register
+Content-Type: application/json
+
+{
+    "username": "user03",
+    "password": "pass"
+}
+
+###
+
+# @name login
+POST {{BASE_URl}}/api/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+@authToken = {{login.response.body.$.token}}
+
+GET {{BASE_URl}}/api/favs
+Content-Type: application/json
+Authorization: {{authToken}}
+
+###
+
+POST {{BASE_URl}}/api/favs/22
+Content-Type: application/json
+Authorization: {{authToken}}
+
+###
+
+DELETE {{BASE_URl}}/api/favs/24
+Content-Type: application/json
+Authorization: {{authToken}}
