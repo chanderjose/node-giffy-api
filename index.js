@@ -5,6 +5,8 @@ const app = express()
 
 app.set('secretKey', '<<<SUPER-SECRET-KEY>>>');
 
+app.disable('x-powered-by')
+
 app.use(cors())
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
