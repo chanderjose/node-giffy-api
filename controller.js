@@ -97,7 +97,7 @@ exports.createFav = function(request, response) {
         user.favs.push(itemToAdd)
     }
 
-    response.status(200).json({ favs: user.favs })
+    response.status(200).send()
 }
 
 exports.deleteFav = function(request, response, next) {
